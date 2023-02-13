@@ -1,0 +1,12 @@
+@import "../sass/variables/variables.scss";
+
+.error {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: $color-primary;
+
+  .link__homepage{
+    text-decoration: underline;
+  }
+}

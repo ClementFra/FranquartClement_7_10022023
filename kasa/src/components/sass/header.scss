@@ -1,0 +1,12 @@
+@import "../sass/variables/variables.scss";
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $color-primary;
+
+    .nav__list{
+        list-style: none;
+    }
+}
