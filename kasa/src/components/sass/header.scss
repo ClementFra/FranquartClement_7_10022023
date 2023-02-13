@@ -1,5 +1,4 @@
 @import "../sass/variables/variables.scss";
-@import "../sass/variables/mixins.scss";
 
 header {
   display: flex;
@@ -15,7 +14,7 @@ header {
   }
   nav {
     font-size: 1.5em;
-    font-weight: 400;
+    font-weight: 600;
   }
   .nav__list {
     list-style: none;
