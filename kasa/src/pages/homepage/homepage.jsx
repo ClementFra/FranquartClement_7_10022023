@@ -12,19 +12,19 @@ const Home = () => {
     });
 
     useEffect(() => {
-      const fetchDatas = async () => {
+      const fetchDatas =  async () => {
         try {
-          let config = await fetch("/locations.json");
-          let response = await config.json();
+          const config = await fetch("/locations.json");
+          const response = await config.json();
           setData({
             items: response,
           });
-        } catch {
-          setData((state) => ({ ...state }));
+        } catch(error) {
+          console.log(error);
         }
       };
       fetchDatas();
-    });
+    },[]);
     return [state.items];
   }
   const [items] = useFetchDatas();
@@ -37,11 +37,12 @@ const Home = () => {
         altTexte="falaise montagneuse avec une mer agitée "
       />
       <div className="homepage">
-        {items.map((accommodation) => (
+        {items.map((accommodation,index) => (
           <Card
             title={accommodation.title}
             cover={accommodation.cover}
             id={accommodation.id}
+            key={index}
           />
         ))}
       </div>

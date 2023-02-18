@@ -32,7 +32,7 @@ const HouseDescription = () => {
       };
       fetchDatas();
       // eslint-disable-next-line
-    }, [id, navigate]);
+    }, [id]);
     return [state.items];
   }
   const [items] = useFetchDatas();
@@ -44,8 +44,12 @@ const HouseDescription = () => {
             <h1 className="info__title">{items.title}</h1>
             <p className="info__location">{items.location}</p>
             <ul className="info__tag">
-              {items.tags.map((tag) => {
-                return <li className="tag__items">{tag}</li>;
+              {items.tags.map((tag, index) => {
+                return (
+                  <li className="tag__items" key={index}>
+                    {tag}
+                  </li>
+                );
               })}
             </ul>
           </div>

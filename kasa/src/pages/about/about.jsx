@@ -2,8 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import BannerAbout from "../../assets/images/header-a-propos.PNG";
 import Collapse from "../../components/collapse/collapse";
-import Banner
- from "../../components/banner/banner";
+import Banner from "../../components/banner/banner";
 const About = () => {
   function useFetchDatas() {
     const [state, setData] = useState({
@@ -13,8 +12,8 @@ const About = () => {
     useEffect(() => {
       const fetchDatas = async () => {
         try {
-          let config = await fetch("/about.json");
-          let response = await config.json();
+          const config = await fetch("/about.json");
+          const response = await config.json();
 
           setData({
             items: response,
@@ -24,7 +23,7 @@ const About = () => {
         }
       };
       fetchDatas();
-    });
+    }, []);
     return [state.items];
   }
   const [items] = useFetchDatas();
@@ -35,12 +34,14 @@ const About = () => {
         alt="Montagne verdoyante avec des montages plus haute en fond"
       />
       <section className="about">
-        {items.map((about)=>{
-            return (
-                <Collapse 
-                title={about.title}
-                text={<li>{about.text}</li>} />
-            )
+        {items.map((about, index) => {
+          return (
+            <Collapse
+              title={about.title}
+              text={<li>{about.text}</li>}
+              key={index}
+            />
+          );
         })}
       </section>
     </>
