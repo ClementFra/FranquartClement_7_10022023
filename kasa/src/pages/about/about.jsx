@@ -18,8 +18,8 @@ const About = () => {
           setData({
             items: response,
           });
-        } catch {
-          setData((state) => ({ ...state }));
+        } catch(error) {
+          console.log(error);
         }
       };
       fetchDatas();
