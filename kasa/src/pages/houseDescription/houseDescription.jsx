@@ -36,7 +36,6 @@ const HouseDescription = () => {
     return [state.items];
   }
   const [items] = useFetchDatas();
-
   return (
     <>
       <section>
@@ -52,7 +51,7 @@ const HouseDescription = () => {
           </div>
           <div className="host">
             <p className="host__name">{items.host.name}</p>
-            <img
+            <picture
               className="host__picture"
               src={items.host.picture}
               alt="photo de l'hôte"
