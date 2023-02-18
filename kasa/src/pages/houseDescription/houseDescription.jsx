@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import "../../components/sass/houseDescriptions.scss";
 import Collapse from "../../components/collapse/collapse";
 
 const HouseDescription = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-
   function useFetchDatas() {
     const [state, setData] = useState({
       items: [],
@@ -15,24 +11,18 @@ const HouseDescription = () => {
     useEffect(() => {
       const fetchDatas = async () => {
         try {
-          let config = await fetch("/locations.json");
-          let response = await config.json();
-          const accommmodationFound = response.find(
-            (accommodation) => accommodation.id === id
-          );
-          if (accommmodationFound === "") {
-            navigate("404");
-          }
+          const config = await fetch("/locations.json");
+          const response = await config.json();
+
           setData({
-            items: accommmodationFound,
+            items: response,
           });
         } catch {
           setData((state) => ({ ...state }));
         }
       };
       fetchDatas();
-      // eslint-disable-next-line
-    }, [id]);
+    }, []);
     return [state.items];
   }
   const [items] = useFetchDatas();
