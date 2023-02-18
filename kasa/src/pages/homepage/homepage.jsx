@@ -37,12 +37,11 @@ const Home = () => {
         altTexte="falaise montagneuse avec une mer agitée "
       />
       <div className="homepage">
-        {items.map((accommodation, index) => (
+        {items.map((accommodation) => (
           <Card
             title={accommodation.title}
             cover={accommodation.cover}
             id={accommodation.id}
-            key={index}
           />
         ))}
       </div>
