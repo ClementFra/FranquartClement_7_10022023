@@ -15,7 +15,7 @@ const HouseDescription = () => {
     useEffect(() => {
       const fetchDatas = async () => {
         try {
-          let config = await fetch("/location.json");
+          let config = await fetch("/locations.json");
           let response = await config.json();
           const accommmodationFound = response.find(
             (accommodation) => accommodation.id === id
