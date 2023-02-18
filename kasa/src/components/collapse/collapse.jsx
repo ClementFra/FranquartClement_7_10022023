@@ -2,11 +2,11 @@ import React from "react";
 import { useState } from "react";
 
 const Collapse = ({ text, title }) => {
-  const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const Content = () => {
-    setActive((current) => {
-      return (current = !active);
+    setOpen((toggle) => {
+      return (toggle = !open);
     });
   };
 
