@@ -1,0 +1,20 @@
+@import "../utils/variables.scss";
+
+.homepage {
+  background-color: $color-secondary;
+  border-radius: 25px;
+  padding-top: 25px;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  @media screen and (max-width: 900px) {
+    margin-top: 40px;
+  }
+
+  @media screen and (max-width: 400px) {
+    background-color: white;
+    margin-top: 0px;
+  }
+}

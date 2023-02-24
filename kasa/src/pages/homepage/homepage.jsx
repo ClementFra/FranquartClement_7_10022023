@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Banner from "../../components/banner/banner";
+import Loader from "../../components/loader/loader";
 import BannerHomepage from "../../assets/images/header-banner-homepage.png";
 import Card from "../../components/card/card";
-import Loader from "../../components/loading/loading";
-import "../../components/sass/homepage.scss";
+import "../../components/sass/pages/homepage.scss";
 
 const Home = () => {
   function useFetchDatas() {
@@ -16,22 +16,21 @@ const Home = () => {
     useEffect(() => {
       const fetchDatas = async () => {
         try {
-          let config = await fetch("/location.json");
-          let response = await config.json();
+          const config = await fetch("/locations.json");
+          const response = await config.json();
           setData({
             items: response,
             loading: false,
           });
-        } catch {
-          setData((state) => ({ ...state, loading: false }));
+        } catch (error) {
+          console.log(error);
         }
       };
       fetchDatas();
-    });
+    }, []);
     return [state.items, state.loading];
   }
   const [items, loading] = useFetchDatas();
-
   if (loading) {
     return <Loader />;
   }
@@ -43,11 +42,11 @@ const Home = () => {
         altTexte="falaise montagneuse avec une mer agitée "
       />
       <div className="homepage">
-        {items.map((accos, index) => (
+        {items.map((accommodation, index) => (
           <Card
-            title={accos.title}
-            cover={accos.cover}
-            id={accos.id}
+            title={accommodation.title}
+            cover={accommodation.cover}
+            id={accommodation.id}
             key={index}
           />
         ))}
