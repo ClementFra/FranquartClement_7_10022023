@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "../../components/sass/pages/houseDescriptions.scss";
+import Styles from "../../components/sass/pages/houseDescriptions.module.scss";
 import Collapse from "../../components/collapse/collapse";
 import Loader from "../../components/loader/loader";
-import Slide from "../../components/slide/slide";
+import Slide from "../../components/slide/slideShow";
+import starEmpty from "../../assets/images/starEmpty.svg";
+import starFilled from "../../assets/images/starFilled.svg";
 
 const HouseDescription = () => {
+  const stars = [1, 2, 3, 4, 5];
   function useFetchDatas() {
     const navigate = useNavigate();
     const { id } = useParams();
     const [state, setData] = useState({
-      items: [],
+      item: [],
       loading: true,
     });
 
@@ -26,7 +29,7 @@ const HouseDescription = () => {
             navigate("404");
           }
           setData({
-            items: currentAccommodation,
+            item: currentAccommodation,
             loading: false,
           });
         } catch (error) {
@@ -35,7 +38,7 @@ const HouseDescription = () => {
       };
       fetchDatas();
     }, [id, navigate]);
-    return [state.items, state.loading];
+    return [state.item, state.loading];
   }
   const [item, loading] = useFetchDatas();
   if (loading) {
@@ -43,40 +46,75 @@ const HouseDescription = () => {
   }
   return (
     <>
-    <Slide pictures={item.pictures}></Slide>
-      <section>
-        <article className="accommodation">
-          <div className="info">
-            <h1 className="info__title">{item.title}</h1>
-            <p className="info__location">{item.location}</p>
-            <ul className="info__tag">
+      <Slide pictures={item.pictures} className="pictures" />
+      <section className={Styles.container}>
+        <div className={Styles["container-general"]}>
+          <div className={Styles["container-infos"]}>
+            <h1 className={Styles["container-infos__title"]}>{item.title}</h1>
+            <p className={Styles["container-infos__location"]}>
+              {item.location}
+            </p>
+            <ul className={Styles["container-infos__tags"]}>
               {item.tags.map((tag, index) => {
                 return (
-                  <li className="tag__items" key={index}>
+                  <li
+                    className={Styles["container-infos__tags__item"]}
+                    key={index}
+                  >
                     {tag}
                   </li>
                 );
               })}
             </ul>
           </div>
-          <div className="host">
-            <p className="host__name">{item.host.name}</p>
-            <img
-              className="host__picture"
-              src={item.host.picture}
-              alt="photo de l'hôte"
-            />
+          <div className={Styles["container-host-rate"]}>
+            <div className={Styles["container-host-rate__host"]}>
+              <p className={Styles["container-host-rate__host__name"]}>{item.host.name}</p>
+              <img
+                className={Styles["container-host-rate__host__picture"]}
+                src={item.host.picture}
+                alt=""
+              />
+            </div>
+            <div className={Styles["container-host-rate__rating"]}>
+              {stars.map((rate) =>
+                item.rating >= rate ? (
+                  <img
+                    key={rate.toString()}
+                    className={Styles.star}
+                    src={starFilled}
+                    alt="Etoile pleine"
+                  />
+                ) : (
+                  <img
+                    key={rate.toString()}
+                    className={Styles.star}
+                    src={starEmpty}
+                    alt="Etoile vide"
+                  />
+                )
+              )}
+            </div>
           </div>
-        </article>
-        <article>
-          <Collapse title="Description" text={<li>{item.description}</li>} />
+        </div>
+        <div className={Styles.drop}>
           <Collapse
+            page="houseDescriptions"
+            classList="flex_col_45"
+            title="Description"
+            text={<li>{item.description}</li>}
+            style={{ borderRadius: `${10}px` }}
+          />
+          <Collapse
+            page="houseDescriptions"
+            classList="flex_col_45"
             title="Equipements"
-            text={item.equipments.map((equipments) => {
-              return <li className="equipements">{equipments}</li>;
+            style={{ borderRadius: `${10}px` }}
+            text={item.equipments.map((equipments,index) => {
+              return <li className={Styles.equipments}  key={index}>{equipments}</li>;
             })}
           />
-        </article>
+        </div>
       </section>
     </>
   );

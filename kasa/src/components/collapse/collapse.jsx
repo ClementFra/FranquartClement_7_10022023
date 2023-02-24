@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import "../sass/components/collapse.scss";
+import Styles from "../sass/components/collapse.module.scss";
+import Arrow from "../../assets/images/arrow_back.svg";
 
-const Collapse = ({ text, title }) => {
+const Collapse = ({ text, title, style, classlist, page }) => {
   const [open, setOpen] = useState(false);
 
   const Content = () => {
@@ -12,12 +13,31 @@ const Collapse = ({ text, title }) => {
   };
 
   return (
-    <article>
-      <div onClick={Content}>
-        <h2>{title}</h2>
+    <article
+      className={[Styles[`container__${page}`], Styles[classlist]].join(" ")}
+    >
+      <div
+        className={Styles[`container__${page}__element`]}
+        style={style}
+        onClick={Content}
+      >
+        <h2 className={Styles[`container__${page}__element__title`]}>
+          {title}
+        </h2>
+        <img
+          src={Arrow}
+          alt="drop"
+          className={open ? Styles.open : ""}
+        ></img>
       </div>
-      <div>
-        <ul>{text}</ul>
+      <div
+        className={[
+          Styles[`container__${page}__content`],
+          open && Styles.open,
+        ].join(" ")}
+        style={style}
+      >
+        <ul className={Styles[`container__${page}__content__text`]}>{text}</ul>
       </div>
     </article>
   );
