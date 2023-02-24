@@ -1,34 +1,39 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Banner from "../../components/banner/banner";
+import Loader from "../../components/loader/loader";
 import BannerHomepage from "../../assets/images/header-banner-homepage.png";
 import Card from "../../components/card/card";
-import "../../components/sass/homepage.scss";
+import "../../components/sass/pages/homepage.scss";
 
 const Home = () => {
   function useFetchDatas() {
     const [state, setData] = useState({
       items: [],
+      loading: true,
     });
 
     useEffect(() => {
-      const fetchDatas =  async () => {
+      const fetchDatas = async () => {
         try {
           const config = await fetch("/locations.json");
           const response = await config.json();
           setData({
             items: response,
+            loading: false,
           });
-        } catch(error) {
+        } catch (error) {
           console.log(error);
         }
       };
       fetchDatas();
-    },[]);
-    return [state.items];
+    }, []);
+    return [state.items, state.loading];
   }
-  const [items] = useFetchDatas();
-
+  const [items, loading] = useFetchDatas();
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <>
       <Banner
@@ -37,7 +42,7 @@ const Home = () => {
         altTexte="falaise montagneuse avec une mer agitée "
       />
       <div className="homepage">
-        {items.map((accommodation,index) => (
+        {items.map((accommodation, index) => (
           <Card
             title={accommodation.title}
             cover={accommodation.cover}

@@ -1,0 +1,58 @@
+@import "../utils/variables.scss";
+
+.error {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: $color-primary;
+
+  &__status {
+    font-size: 288px;
+    font-weight: 700;
+    margin: 0;
+    margin-top: 175px;
+
+    @media screen and (max-width: 900px) {
+      font-size: 192px;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 96px;
+    }
+  }
+
+  &__text {
+    font-size: 36px;
+    font-weight: 500;
+    margin: 0;
+    margin-top: 66px;
+    text-align: center;
+
+    @media screen and (max-width: 900px) {
+      font-size: 18px;
+      margin-top: 11px;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 18px;
+      margin-top: 11px;
+    }
+  }
+
+  .link__homepage {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    margin-top: 182px;
+    margin-bottom: 159px;
+    text-decoration: underline;
+
+    @media screen and (max-width: 900px) {
+      font-size: 14px;
+      margin-top: 135px;
+    }
+
+    @media screen and (max-width: 400px) {
+      font-size: 14px;
+      margin-top: 135px;
+    }
+  }
+}

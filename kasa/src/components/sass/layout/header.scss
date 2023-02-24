@@ -1,4 +1,4 @@
-@import "../sass/variables/variables.scss";
+@import "../utils/variables.scss";
 
 header {
   display: flex;
@@ -12,6 +12,13 @@ header {
     img {
       height: 68px;
       width: 100%;
+
+      @media screen and (max-width: 900px) {
+        height: 58px;
+      }
+      @media screen and (max-width: 400px) {
+        height: 40px;
+      }
     }
   }
   nav {
@@ -19,6 +26,15 @@ header {
     font-weight: 600;
     margin-bottom: 45px;
     margin-right: -30px;
+
+    @media screen and (max-width: 900px) {
+      font-size: 17px;
+      padding-top: 50px;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
   }
   .nav__list {
     list-style: none;
@@ -28,6 +44,9 @@ header {
     margin-right: 50px;
     &:hover {
       text-decoration: underline;
+    }
+    @media screen and (max-width: 400px) {
+      margin-right: 20px;
     }
   }
 }
