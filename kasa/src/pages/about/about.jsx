@@ -4,6 +4,7 @@ import BannerAbout from "../../assets/images/header-a-propos.PNG";
 import Collapse from "../../components/collapse/collapse";
 import Banner from "../../components/banner/banner";
 import Loader from "../../components/loader/loader";
+import Styles from "../../components/sass/pages/about.module.scss";
 const About = () => {
   function useFetchDatas() {
     const [state, setData] = useState({
@@ -39,13 +40,16 @@ const About = () => {
         srcImg={BannerAbout}
         alt="Montagne verdoyante avec des montages plus haute en fond"
       />
-      <section className="about">
+      <section className={Styles.drop}>
         {items.map((about, index) => {
           return (
             <Collapse
+              page="about"
+              classList="flex_col_80"
               title={about.title}
               text={<li>{about.text}</li>}
               key={index}
+              style={{ borderRadius: `${5}px` }}
             />
           );
         })}

@@ -1,11 +1,11 @@
 import React from "react";
-
+import Styles from "../sass/components/slideShow.module.scss";
 import { useState, useEffect, useReducer } from "react";
 import rightArrow from "../../assets/images/arrow_right.png";
 import leftArrow from "../../assets/images/arrow_left.png";
 
 const Slide = ({ pictures }) => {
-  const [dispatch] = useReducer(reducer, 0);
+  const [currentSlide, dispatch] = useReducer(reducer, 0);
 
   function reducer(state, action) {
     switch (action.type) {
@@ -30,25 +30,36 @@ const Slide = ({ pictures }) => {
   });
 
   return (
-    <div>
+    <div className={Styles["slide"]}>
       {show ? (
-        <div>
+        <div className={Styles["slide__next-previous"]}>
           <img
+            className={Styles["slide__next-previous__prev"]}
             src={leftArrow}
             onClick={() => dispatch({ type: "prev" })}
             alt="previous"
           />
           <img
+            className={Styles["slide__next-previous__next"]}
             src={rightArrow}
             onClick={() => dispatch({ type: "next" })}
             alt="next"
           />
         </div>
       ) : null}
-      <div>
+      <div
+        className={Styles["slide__content"]}
+        style={{ transform: `translateX(${-currentSlide * 100}% )` }}
+      >
         {pictures.map((picture, index) => {
           return (
-            <div>
+            <div
+              className={[
+                Styles["slide__content__item"],
+                !show && Styles.open,
+              ].join(" ")}
+              key={index}
+            >
               <img src={picture} alt="Illustration du bien" />
             </div>
           );
