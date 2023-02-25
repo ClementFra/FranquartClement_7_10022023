@@ -8,7 +8,7 @@ import starEmpty from "../../assets/images/starEmpty.svg";
 import starFilled from "../../assets/images/starFilled.svg";
 
 const HouseDescription = () => {
-  const stars = [1, 2, 3, 4, 5];
+  const stars = [0, 1, 2, 3, 4];
   function useFetchDatas() {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -69,7 +69,9 @@ const HouseDescription = () => {
           </div>
           <div className={Styles["container-host-rate"]}>
             <div className={Styles["container-host-rate__host"]}>
-              <p className={Styles["container-host-rate__host__name"]}>{item.host.name}</p>
+              <p className={Styles["container-host-rate__host__name"]}>
+                {item.host.name}
+              </p>
               <img
                 className={Styles["container-host-rate__host__picture"]}
                 src={item.host.picture}
@@ -110,8 +112,12 @@ const HouseDescription = () => {
             classList="flex_col_45"
             title="Equipements"
             style={{ borderRadius: `${10}px` }}
-            text={item.equipments.map((equipments,index) => {
-              return <li className={Styles.equipments}  key={index}>{equipments}</li>;
+            text={item.equipments.map((equipments, index) => {
+              return (
+                <li className={Styles.equipments} key={index}>
+                  {equipments}
+                </li>
+              );
             })}
           />
         </div>
