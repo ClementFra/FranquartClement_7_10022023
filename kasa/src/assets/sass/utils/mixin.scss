@@ -1,7 +1,0 @@
-
-    @for $i from 0 to $number{
-        &:nth-child(#{$i+1}){
-            animation-delay: #{$delay + 0.1s};
-            $delay: $delay + 0.1;
-        }
-    }
