@@ -4,9 +4,14 @@
   .container-general {
     display: flex;
     justify-content: space-between;
+    /***********Responvive ****************
+    ***************************************/
+
     @media screen and (max-width: 900px) {
       flex-direction: column;
     }
+    /**************************************/
+
     .container-infos {
       display: flex;
       flex-direction: column;
@@ -17,6 +22,9 @@
         margin: 0;
         width: 100%;
 
+        /***********Responvive ****************
+        ***************************************/
+
         @media screen and (max-width: 900px) {
           font-size: 30px;
         }
@@ -24,11 +32,15 @@
           font-size: 18px;
         }
       }
+      /**************************************/
 
-      &__location {
+      &__laccommodation {
         font-size: 18px;
         margin-top: 5px;
         margin-bottom: 23px;
+
+        /***********Responvive ****************
+        ***************************************/
 
         @media screen and (max-width: 900px) {
           font-size: 16px;
@@ -37,6 +49,7 @@
           font-size: 14px;
         }
       }
+      /**************************************/
 
       &__tags {
         display: flex;
@@ -45,6 +58,9 @@
         font-weight: 500;
         margin-bottom: 15px;
 
+        /***********Responvive ****************
+        ***************************************/
+
         @media screen and (max-width: 900px) {
           font-size: 13px;
         }
@@ -52,6 +68,7 @@
         @media screen and (max-width: 400px) {
           font-size: 12px;
         }
+        /**************************************/
 
         &__item {
           padding: 10px 20px 10px 20px;
@@ -64,9 +81,13 @@
           align-items: center;
           margin: 5px;
 
+          /***********Responvive ****************
+        ***************************************/
+
           @media screen and (max-width: 400px) {
             height: 30px;
           }
+          /**************************************/
         }
       }
     }
@@ -74,6 +95,8 @@
     .container-host-rate {
       margin-top: 20px;
 
+      /***********Responvive ****************
+      ***************************************/
       @media screen and (max-width: 900px) {
         display: flex;
         flex-direction: row-reverse;
@@ -84,6 +107,8 @@
       @media screen and (max-width: 400px) {
         margin-top: 0;
       }
+
+      /**************************************/
 
       &__host {
         display: flex;
@@ -96,6 +121,9 @@
           margin-top: 10px;
           width: 95px;
 
+          /***********Responvive ****************
+          ***************************************/
+
           @media screen and (max-width: 900px) {
             font-size: 15px;
             width: 75px;
@@ -105,12 +133,18 @@
             width: 60px;
             padding-left: 0px;
           }
+
+          /**************************************/
         }
 
         &__picture {
           width: 64px;
           height: 64px;
           border-radius: 50%;
+
+          /***********Responvive ****************
+          ***************************************/
+
           @media screen and (max-width: 900px) {
             width: 55px;
             height: 55px;
@@ -121,14 +155,18 @@
             height: 50px;
             border-radius: 50%;
           }
+          /**************************************/
         }
       }
 
-      &__rating {
+      &__star {
         display: flex;
         height: 38px;
         margin-top: 10px;
         min-width: 150px;
+
+        /***********Responvive ****************
+        ***************************************/
 
         @media screen and (max-width: 900px) {
           height: 30px;
@@ -136,6 +174,7 @@
         @media screen and (max-width: 400px) {
           height: 20px;
         }
+        /**************************************/
       }
     }
   }
@@ -144,9 +183,13 @@
     justify-content: space-between;
     margin-top: 24px;
 
+    /***********Responvive ****************
+    ***************************************/
+
     @media screen and (max-width: 400px) {
       flex-direction: column;
       margin-bottom: 20px;
     }
+    /**************************************/
   }
 }

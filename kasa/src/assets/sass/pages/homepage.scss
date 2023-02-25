@@ -9,6 +9,8 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 
+  /***********Responvive ****************
+  ***************************************/
   @media screen and (max-width: 900px) {
     margin-top: 40px;
   }
@@ -17,4 +19,5 @@
     background-color: white;
     margin-top: 0px;
   }
+  /**************************************/
 }

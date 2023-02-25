@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../sass/components/cards.scss";
+import "../../assets/sass/components/cards.scss";
 
 // Gestion du lien, de l'image et titre du logement
 /**************************************************/

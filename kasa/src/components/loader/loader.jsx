@@ -1,5 +1,5 @@
 import React from "react";
-
+//import "../../assets/sass/components/loader.scss";
 const Loader = () => {
     return (
       <div className="loader">

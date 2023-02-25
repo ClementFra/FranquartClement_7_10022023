@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Styles from "../sass/components/collapse.module.scss";
+import Styles from "../../assets/sass/components/collapse.module.scss";
 import Arrow from "../../assets/images/arrow_back.svg";
 
 const Collapse = ({ text, title, style, classlist, page }) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "../sass/components/slideShow.module.scss";
+import Styles from "../../assets/sass/components/slideShow.module.scss";
 import { useState, useEffect, useReducer } from "react";
 import rightArrow from "../../assets/images/arrow_right.png";
 import leftArrow from "../../assets/images/arrow_left.png";
@@ -32,15 +32,15 @@ const Slide = ({ pictures }) => {
   return (
     <div className={Styles["slide"]}>
       {show ? (
-        <div className={Styles["slide__next-previous"]}>
+        <div className={Styles["slide__next"]}>
           <img
-            className={Styles["slide__next-previous__prev"]}
+            className={Styles["slide__next-arrow__left"]}
             src={leftArrow}
             onClick={() => dispatch({ type: "prev" })}
             alt="previous"
           />
           <img
-            className={Styles["slide__next-previous__next"]}
+            className={Styles["slide__next-arrow__right"]}
             src={rightArrow}
             onClick={() => dispatch({ type: "next" })}
             alt="next"

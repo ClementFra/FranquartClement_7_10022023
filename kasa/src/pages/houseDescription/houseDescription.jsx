@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Styles from "../../components/sass/pages/houseDescriptions.module.scss";
+import Styles from "../../assets/sass/pages/houseDescriptions.module.scss";
 import Collapse from "../../components/collapse/collapse";
 import Loader from "../../components/loader/loader";
 import Slide from "../../components/slide/slideShow";
@@ -46,12 +46,12 @@ const HouseDescription = () => {
   }
   return (
     <>
-      <Slide pictures={item.pictures} className="pictures" />
+      <Slide pictures={item.pictures} />
       <section className={Styles.container}>
         <div className={Styles["container-general"]}>
           <div className={Styles["container-infos"]}>
             <h1 className={Styles["container-infos__title"]}>{item.title}</h1>
-            <p className={Styles["container-infos__location"]}>
+            <p className={Styles["container-infos__accommodation"]}>
               {item.location}
             </p>
             <ul className={Styles["container-infos__tags"]}>
@@ -76,21 +76,21 @@ const HouseDescription = () => {
                 alt=""
               />
             </div>
-            <div className={Styles["container-host-rate__rating"]}>
+            <div className={Styles["container-host-rate__star"]}>
               {stars.map((rate) =>
                 item.rating >= rate ? (
                   <img
                     key={rate.toString()}
                     className={Styles.star}
                     src={starFilled}
-                    alt="Etoile pleine"
+                    alt="Etoile remplie orange"
                   />
                 ) : (
                   <img
                     key={rate.toString()}
                     className={Styles.star}
                     src={starEmpty}
-                    alt="Etoile vide"
+                    alt="Etoile vide grise"
                   />
                 )
               )}
