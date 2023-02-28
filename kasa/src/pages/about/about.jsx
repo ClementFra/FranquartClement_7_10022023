@@ -4,7 +4,7 @@ import BannerAbout from "../../assets/images/header-a-propos.PNG";
 import Collapse from "../../components/collapse/collapse";
 import Banner from "../../components/banner/banner";
 import Loader from "../../components/loader/loader";
-import Styles from "../../assets/sass/pages/about.module.scss";
+import Styles from "./about.module.scss";
 const About = () => {
   function useFetchDatas() {
     const [state, setData] = useState({
@@ -49,7 +49,6 @@ const About = () => {
               title={about.title}
               text={<li>{about.text}</li>}
               key={index}
-              style={{ borderRadius: `${5}px` }}
             />
           );
         })}

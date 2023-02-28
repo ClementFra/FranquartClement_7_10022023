@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "../../assets/sass/components/slideShow.module.scss";
+import Styles from "./slideShow.module.scss";
 import { useState, useEffect, useReducer } from "react";
 import rightArrow from "../../assets/images/arrow_right.png";
 import leftArrow from "../../assets/images/arrow_left.png";

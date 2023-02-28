@@ -1,4 +1,4 @@
-@import "../utils/variables.scss";
+@import "../../assets/sass/utils/variables.scss";
 
 .container {
   &__houseDescriptions,
@@ -24,6 +24,7 @@
       cursor: pointer;
       width: 100%;
       height: 47px;
+      border-radius: 5px;
     
       /***********Responvive ****************
       ***************************************/
@@ -72,10 +73,9 @@
       display: none;
       color: $color-primary;
       background-color: $color-fourth;
-      margin-top: -2px;
       z-index: -1;
       width: 100%;
-
+      margin-top: -15px;
       &__text {
         font-size: 18px;
         font-weight: 400;
@@ -103,7 +103,6 @@
 .flex_col_45 {
   display: flex;
   flex-direction: column;
-  width: 30%;
 
   /***********Responvive ****************
   ***************************************/
@@ -116,5 +115,4 @@
 .flex_col_80 {
   display: flex;
   flex-direction: column;
-  width: 30%;
 }

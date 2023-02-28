@@ -1,4 +1,4 @@
-@import "../utils/variables.scss";
+@import "../../assets/sass/utils/variables.scss";
 
 header {
   display: flex;
@@ -10,11 +10,8 @@ header {
   color: $color-primary;
 
   .logo {
-    flex-basis: 30%;
     img {
       height: 68px;
-      width: 100%;
-
 
       /***********Responvive ****************
       ***************************************/
@@ -29,7 +26,6 @@ header {
   nav {
     font-size: 2em;
     font-weight: 600;
-    margin-right: -30px;
 
     /***********Responvive ****************
     ***************************************/
@@ -42,26 +38,27 @@ header {
       text-transform: uppercase;
     }
     /**************************************/
-  }
-  .nav__list {
-    list-style: none;
-    display: flex;
-  }
-  .list__item {
-    margin-right: 50px;
-    &:hover {
-      text-decoration: underline;
-    }
-    /***********Responvive ****************
-    ***************************************/
-    @media screen and (max-width: 900px) {
-      margin-top: -30px;
-    }
 
-    @media screen and (max-width: 400px) {
-      margin-right: 20px;
-      margin-top: -30px;
+    .list {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+
+      &__item {
+        &:hover {
+          text-decoration: underline;
+        }
+        /***********Responvive ****************
+      ***************************************/
+        @media screen and (max-width: 900px) {
+          margin-top: -30px;
+        }
+
+        @media screen and (max-width: 400px) {
+          margin-top: -30px;
+        }
+        /**************************************/
+      }
     }
-    /**************************************/
   }
 }

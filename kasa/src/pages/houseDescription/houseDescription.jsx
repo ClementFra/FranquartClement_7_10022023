@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Styles from "../../assets/sass/pages/houseDescriptions.module.scss";
+import Styles from "./houseDescriptions.module.scss";
 import Collapse from "../../components/collapse/collapse";
 import Loader from "../../components/loader/loader";
 import Slide from "../../components/slide/slideShow";
@@ -105,13 +105,11 @@ const HouseDescription = () => {
             classList="flex_col_45"
             title="Description"
             text={<li>{item.description}</li>}
-            style={{ borderRadius: `${10}px` }}
           />
           <Collapse
             page="houseDescriptions"
             classList="flex_col_45"
             title="Equipements"
-            style={{ borderRadius: `${10}px` }}
             text={item.equipments.map((equipments, index) => {
               return (
                 <li className={Styles.equipments} key={index}>

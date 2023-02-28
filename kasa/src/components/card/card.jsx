@@ -1,16 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../assets/sass/components/cards.scss";
+import Styles from "./cards.module.scss";
 
 // Gestion du lien, de l'image et titre du logement
 /**************************************************/
 const Card = ({ cover, id, title }) => {
   return (
-    <article className="card">
+    <article className={Styles.card}>
       <Link to={`accommodation/${id}`}>
-        <h2 className="card__title">{title}</h2>
-        <div className="card__location">
-          <div clasname="overlay"></div>
+        <h2 className={Styles.card__title}>{title}</h2>
+        <div className={Styles.card__location}>
           <img src={cover} alt="location" />
         </div>
       </Link>

@@ -1,11 +1,11 @@
 import React from "react";
-import "../../assets/sass/components/banner.scss";
+import Styles from "./banner.module.scss";
 
 const Banner = ({ title, srcImg, altTexte }) => {
   return (
-    <div className="banner">
-      {title ? <h1 className="banner__title">{title}</h1> : ""}
-      <div className="overlay"></div>
+    <div className={Styles.banner}>
+      {title ? <h1 className={Styles["banner__title"]}>{title}</h1> : ""}
+      <div className={Styles["overlay"]}></div>
       <img src={srcImg} alt={altTexte}></img>
     </div>
   );

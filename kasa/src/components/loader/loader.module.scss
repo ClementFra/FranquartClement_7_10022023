@@ -1,5 +1,4 @@
-@import "../utils/variables.scss";
-@import "../utils/mixin.scss";
+@import "../../assets/sass/utils/variables.scss";
 
 .loader{
     display: flex;
@@ -14,11 +13,5 @@
         color:$color-primary;
         letter-spacing: 30px;
         animation: point 2s linear infinite;
-        @for $i from 0 to $number{
-            &:nth-child(#{$i+1}){
-                animation-delay: #{$delay + 0.1s};
-                $delay: $delay + 0.1;
-            }
-        }
     }
 }

@@ -1,11 +1,11 @@
 import React from "react";
-//import "../../assets/sass/components/loader.scss";
+import Styles from "./loader.module.scss";
 const Loader = () => {
     return (
-      <div className="loader">
-        <span className="dot">.</span>
-        <span className="dot">.</span>
-        <span className="dot">.</span>
+      <div className={Styles.loader}>
+        <span className={Styles.dot}>.</span>
+        <span className={Styles.dot}>.</span>
+        <span className={Styles.dot}>.</span>
       </div>
     );
   };
