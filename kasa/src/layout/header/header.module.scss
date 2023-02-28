@@ -1,0 +1,64 @@
+@import "../../assets/sass/utils/variables.scss";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px auto;
+  padding: 0 20px;
+  max-width: 1280px;
+  color: $color-primary;
+
+  .logo {
+    img {
+      height: 68px;
+
+      /***********Responvive ****************
+      ***************************************/
+      @media screen and (max-width: 900px) {
+        height: 58px;
+      }
+      @media screen and (max-width: 400px) {
+        height: 40px;
+      }
+    }
+  }
+  nav {
+    font-size: 2em;
+    font-weight: 600;
+
+    /***********Responvive ****************
+    ***************************************/
+    @media screen and (max-width: 900px) {
+      font-size: 17px;
+      padding-top: 50px;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    /**************************************/
+
+    .list {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+
+      &__item {
+        &:hover {
+          text-decoration: underline;
+        }
+        /***********Responvive ****************
+      ***************************************/
+        @media screen and (max-width: 900px) {
+          margin-top: -30px;
+        }
+
+        @media screen and (max-width: 400px) {
+          margin-top: -30px;
+        }
+        /**************************************/
+      }
+    }
+  }
+}

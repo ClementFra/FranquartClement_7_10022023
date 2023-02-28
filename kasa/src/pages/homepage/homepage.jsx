@@ -4,7 +4,7 @@ import Banner from "../../components/banner/banner";
 import Loader from "../../components/loader/loader";
 import BannerHomepage from "../../assets/images/header-banner-homepage.png";
 import Card from "../../components/card/card";
-import "../../components/sass/pages/homepage.scss";
+import Styles from "./homepage.module.scss";
 
 const Home = () => {
   function useFetchDatas() {
@@ -41,7 +41,7 @@ const Home = () => {
         srcImg={BannerHomepage}
         altTexte="falaise montagneuse avec une mer agitée "
       />
-      <div className="homepage">
+      <div className={Styles.homepage}>
         {items.map((accommodation, index) => (
           <Card
             title={accommodation.title}

@@ -1,14 +1,14 @@
 import React from "react";
 import Logo from "../../assets/images/logo-kasa-white.png";
-import "../../components/sass/layout/footer.scss";
+import Styles from "./footer.module.scss";
 
 const Footer = () => {
   return (
     <footer>
-      <div className="logo">
+      <div className={Styles.logo}>
         <img src={Logo} alt="Logo de l'entreprise en blanc" />
       </div>
-      <p className="copyright">© 2020 Kasa. All rights reserved</p>
+      <p className={Styles.copyright}>© 2020 Kasa. All rights reserved</p>
     </footer>
   );
 };

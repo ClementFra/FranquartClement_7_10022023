@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Styles from "../../components/sass/pages/houseDescriptions.module.scss";
+import Styles from "./houseDescriptions.module.scss";
 import Collapse from "../../components/collapse/collapse";
 import Loader from "../../components/loader/loader";
 import Slide from "../../components/slide/slideShow";
@@ -8,7 +8,7 @@ import starEmpty from "../../assets/images/starEmpty.svg";
 import starFilled from "../../assets/images/starFilled.svg";
 
 const HouseDescription = () => {
-  const stars = [1, 2, 3, 4, 5];
+  const stars = [0, 1, 2, 3, 4];
   function useFetchDatas() {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -46,12 +46,12 @@ const HouseDescription = () => {
   }
   return (
     <>
-      <Slide pictures={item.pictures} className="pictures" />
+      <Slide pictures={item.pictures} />
       <section className={Styles.container}>
         <div className={Styles["container-general"]}>
           <div className={Styles["container-infos"]}>
             <h1 className={Styles["container-infos__title"]}>{item.title}</h1>
-            <p className={Styles["container-infos__location"]}>
+            <p className={Styles["container-infos__accommodation"]}>
               {item.location}
             </p>
             <ul className={Styles["container-infos__tags"]}>
@@ -69,28 +69,30 @@ const HouseDescription = () => {
           </div>
           <div className={Styles["container-host-rate"]}>
             <div className={Styles["container-host-rate__host"]}>
-              <p className={Styles["container-host-rate__host__name"]}>{item.host.name}</p>
+              <p className={Styles["container-host-rate__host__name"]}>
+                {item.host.name}
+              </p>
               <img
                 className={Styles["container-host-rate__host__picture"]}
                 src={item.host.picture}
                 alt=""
               />
             </div>
-            <div className={Styles["container-host-rate__rating"]}>
+            <div className={Styles["container-host-rate__star"]}>
               {stars.map((rate) =>
                 item.rating >= rate ? (
                   <img
                     key={rate.toString()}
                     className={Styles.star}
                     src={starFilled}
-                    alt="Etoile pleine"
+                    alt="Etoile remplie orange"
                   />
                 ) : (
                   <img
                     key={rate.toString()}
                     className={Styles.star}
                     src={starEmpty}
-                    alt="Etoile vide"
+                    alt="Etoile vide grise"
                   />
                 )
               )}
@@ -103,15 +105,17 @@ const HouseDescription = () => {
             classList="flex_col_45"
             title="Description"
             text={<li>{item.description}</li>}
-            style={{ borderRadius: `${10}px` }}
           />
           <Collapse
             page="houseDescriptions"
             classList="flex_col_45"
             title="Equipements"
-            style={{ borderRadius: `${10}px` }}
-            text={item.equipments.map((equipments,index) => {
-              return <li className={Styles.equipments}  key={index}>{equipments}</li>;
+            text={item.equipments.map((equipments, index) => {
+              return (
+                <li className={Styles.equipments} key={index}>
+                  {equipments}
+                </li>
+              );
             })}
           />
         </div>
