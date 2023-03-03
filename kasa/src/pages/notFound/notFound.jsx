@@ -2,6 +2,8 @@ import React from "react";
 import Styles from "./notFound.module.scss";
 import { NavLink } from "react-router-dom";
 
+/*Gestion de la page 404 en cas d'erreur */
+
 const NotFound = () => {
   return (
     <section className={Styles.error}>

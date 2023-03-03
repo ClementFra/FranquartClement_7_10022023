@@ -7,6 +7,9 @@ import Card from "../../components/card/card";
 import Styles from "./homepage.module.scss";
 
 const Home = () => {
+
+/*Gestion du fetch, temps de chargement ainsi que la récupération des données */
+
   function useFetchDatas() {
     const [state, setData] = useState({
       items: [],
@@ -30,6 +33,9 @@ const Home = () => {
     }, []);
     return [state.items, state.loading];
   }
+  
+  /*Récupération des données et états après l'appel du fetch */
+
   const [items, loading] = useFetchDatas();
   if (loading) {
     return <Loader />;

@@ -8,7 +8,11 @@ import starEmpty from "../../assets/images/starEmpty.svg";
 import starFilled from "../../assets/images/starFilled.svg";
 
 const HouseDescription = () => {
+  /*Gestion tableau du rate */
   const stars = [0, 1, 2, 3, 4];
+
+  /*Gestion du fetch, temps de chargement ainsi que la récupération des données */
+
   function useFetchDatas() {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -22,6 +26,9 @@ const HouseDescription = () => {
         try {
           const config = await fetch("/locations.json");
           const response = await config.json();
+
+          /*Gestion de l'id du bien , si une id est incorrect alors redirection vers la page notFound */
+
           const currentAccommodation = response.find(
             (accommodation) => accommodation.id === id
           );
@@ -40,6 +47,9 @@ const HouseDescription = () => {
     }, [id, navigate]);
     return [state.item, state.loading];
   }
+
+  /*Récupération des données et états après l'appel du fetch */
+  
   const [item, loading] = useFetchDatas();
   if (loading) {
     return <Loader />;

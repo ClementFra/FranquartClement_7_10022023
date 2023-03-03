@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-
+  transition: opacity ease-in-out 0.6s;
   @media screen and (max-width: 900px) {
     max-height: 330px;
   }
@@ -63,6 +63,7 @@
     transition: 1s;
     position: relative;
     height: 415px;
+    
 
     &__item {
       width: 100%;

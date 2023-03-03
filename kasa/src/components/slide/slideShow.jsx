@@ -5,19 +5,23 @@ import rightArrow from "../../assets/images/arrow_right.png";
 import leftArrow from "../../assets/images/arrow_left.png";
 
 const Slide = ({ pictures }) => {
+  /* Gestion de l'etat de l'image courante*/ 
   const [currentSlide, dispatch] = useReducer(reducer, 0);
 
   function reducer(state, action) {
     switch (action.type) {
       case "next":
-        return state === pictures.length - 1 ? 0 : state + 1;
+        return state === pictures.length - 1 ? 0 : state + 1;/* Si on atteint la dernière image on retourne vers la première image */
       case "prev":
-        return state === 0 ? pictures.length - 1 : state - 1;
+        return state === 0 ? pictures.length - 1 : state - 1;/* Si on atteint la première image on retourne vers la dernière image */
 
       default:
         throw new Error("Action" + action.type + " is undefined.");
     }
   }
+
+  /* Gestion de la visibilité des flèches droite et gauche dans le carrousel
+     en fonction du nombre d'images en cas de plussieurs images */
   const [show, setShow] = useState(false);
 
   useEffect(() => {

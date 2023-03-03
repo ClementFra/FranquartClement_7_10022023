@@ -2,6 +2,10 @@ import React from "react";
 import Logo from "../../assets/images/logo-kasa-white.png";
 import Styles from "./footer.module.scss";
 
+/*******************************************************************************/
+/*Composant Header comprenant le logo ainsi que le copyright  du site***********/
+/*******************************************************************************/
+
 const Footer = () => {
   return (
     <footer>
