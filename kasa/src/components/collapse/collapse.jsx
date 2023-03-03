@@ -3,8 +3,9 @@ import { useState } from "react";
 import Styles from "./collapse.module.scss";
 import Arrow from "../../assets/images/arrow_back.svg";
 
-const Collapse = ({ text, title, style, classList, page }) => {
-  const [open, setOpen] = useState(false);
+const Collapse = ({ text, title,classList, page }) => {
+  /*Gestion de l'affichage du collapse */
+  const [open, setOpen] = useState(false);/* Définition du state open (par défaut false) */
 
   const Content = () => {
     setOpen((toggle) => {
